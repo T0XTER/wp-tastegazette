@@ -126,6 +126,13 @@ function tastegazette_scripts() {
 
 	wp_enqueue_script( 'tastegazette-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+	wp_deregister_script( 'jquery' );
+	wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js');
+	wp_enqueue_script( 'jquery', get_template_directory_uri() . 'http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js');
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/libraries/bootstrap-4.3.1-dist/css/bootstrap.css');//bootstrap
+	wp_enqueue_style( 'main', get_stylesheet_uri(), array('bootstrap') );//main css
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/libraries/bootstrap-4.3.1-dist/js/bootstrap.min.js', true); //bootstrap.min.js
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -170,3 +177,22 @@ if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.ph
 	// file exists... require it.
 	require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 }
+
+add_action( 'after_setup_theme', function () {
+
+	add_theme_support('custom-logo', array(
+		'flex-width'  => true,
+		'width'       => 208,
+		'flex-height' => true,
+		'height'      => 56
+	));
+
+	add_theme_support('post-thumbnails', array('post', 'banner')) ;
+
+	add_theme_support('post-formats', array('post', 'banner'));
+
+	register_nav_menus( [
+		'header-menu'     => 'top-menu',
+		'footer-menu'     => 'bottom-menu',
+	] );
+} );

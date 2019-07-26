@@ -1,0 +1,13 @@
+.navbar-toggler {
+    height: 42px;
+    border: 1px solid yellow;
+}
+
+.icon-bar {
+    width: 30px!important;
+    height: 4px!important;
+    border-radius: 2px!important;
+    background: #000000!important;
+    display: block!important;
+    margin-bottom: 4px;
+}
