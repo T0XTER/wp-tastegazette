@@ -126,6 +126,8 @@ function tastegazette_scripts() {
 
 	wp_enqueue_script( 'tastegazette-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+	wp_register_script( 'fontawesome', 'https://kit.fontawesome.com/65f64fb5db.js');
+	wp_enqueue_script('fontawesome', get_template_directory_uri() . 'https://kit.fontawesome.com/65f64fb5db.js');
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js');
 	wp_enqueue_script( 'jquery', get_template_directory_uri() . 'http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js');

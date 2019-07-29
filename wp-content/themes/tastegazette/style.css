@@ -54,46 +54,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-/*@import "css/tastegazette-main.css";*/
-
-.site-header {
-	height: 90px;
-}
-
-.navbar {
-	padding: 8px 16px;
-}
-
-.navbar-toggler {
-	height: 42px;
-	border: 1px solid transparent;
-	margin-right: 10px;
-	padding: 9px 10px;
-	align-self: center;
-}
-
-.icon-bar:nth-child(-n+3) {
-	margin-bottom: 5px!important;
-}
-
-.navbar-toggler-icon {
-	width: 30px;
-	height: 22px;
-}
-
-
-
-.icon-bar {
-	width: 30px!important;
-	height: 4px!important;
-	border-radius: 2px!important;
-	background: #000000!important;
-	display: block!important;
-}
-
-.navbar-header {
-	display: flex;
-}
+@import "css/tastegazette-main.css";
 
 html {
 	line-height: 1.15; /* 1 */

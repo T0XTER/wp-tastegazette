@@ -16,7 +16,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
 </head>
 
@@ -26,8 +25,8 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<!--< ?php
-			the_custom_logo();
+			<!--?php
+			the_custom_logo(); ?>
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="< ?php echo esc_url( home_url( '/' ) ); ?>" rel="home">< ?php bloginfo( 'name' ); ?></a></h1>
@@ -56,34 +55,35 @@
                             <span class="icon-bar"></span>
                         </span>
                     </button>
-                    <div class="navbar-brand">
-                        <?php the_custom_logo(); ?>
-                    </div>
-                    <div class="navbar-collapse collapse" id="navbarSupportedContent">
-	                    <?php
-	                    wp_nav_menu( array(
-		                    'theme_location'    => 'header-menu',
-		                    'depth'             => 2,
-		                    'container'         => false,
-		                    'container_class'   => 'navbar-collapse collapse',
-		                    'container_id'      => 'navbarSupportedContent',
-		                    'menu_class'        => 'navbar-nav menu-block d-flex',
-		                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-		                    'walker'            => new WP_Bootstrap_Navwalker(),
-	                    ) );
-	                    ?>
-                        <ul class="navbar-nav header-soc-block">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><img src="<?php bloginfo ('template_url'); ?>/assets/images/social-facebook-circular-button.png"></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><img src="<?php bloginfo ('template_url'); ?>/assets/images/social-twitter-circular-button.png"></a>
-                            </li>
-                        </ul>
-                    </div>
+                </div>
+                <div class="navbar-brand custom-navbar">
+					<?php the_custom_logo(); ?>
+                </div>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+					<?php
+					wp_nav_menu( array(
+						'theme_location'    => 'header-menu',
+						'depth'             => 2,
+						'container'         => false,
+						'container_class'   => 'navbar-collapse collapse',
+						'container_id'      => 'navbarSupportedContent',
+						'menu_class'        => 'navbar-nav menu-block d-flex',
+						'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+						'walker'            => new WP_Bootstrap_Navwalker(),
+					) );
+					?>
+                </div>
+                <div class="navbar-nav header-soc-block d-none d-lg-inline-flex">
+                    <a class="nav-link" href="#">
+                        <i class="fab fa-twitter tw-hov"></i>
+                    <a>
+                    <a class="nav-link" href="#">
+                        <i class="fab fa-facebook-f fb-hov"></i>
+                    </a>
                 </div>
             </div>
 		</nav><!-- #site-navigation -->
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

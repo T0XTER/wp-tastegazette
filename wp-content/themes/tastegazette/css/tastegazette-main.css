@@ -1,7 +1,38 @@
+/*MAIN CSS */
+
+/*@import "css/tastegazette-main.css";*/
+
+.site-header {
+    height: 90px;
+    /*border-bottom: 1px solid black;*/
+}
+
+/*.navbar {
+	padding: 8px 16px;
+}*/
+
+.navbar-header {
+    min-height: 74px;
+}
+
 .navbar-toggler {
     height: 42px;
-    border: 1px solid yellow;
+    border: 1px solid transparent;
+    margin-right: 10px;
+    padding: 9px 10px;
+    align-self: center;
 }
+
+.icon-bar:nth-child(-n+3) {
+    margin-bottom: 5px!important;
+}
+
+.navbar-toggler-icon {
+    width: 30px;
+    height: 22px;
+}
+
+
 
 .icon-bar {
     width: 30px!important;
@@ -9,5 +40,68 @@
     border-radius: 2px!important;
     background: #000000!important;
     display: block!important;
-    margin-bottom: 4px;
+}
+
+.navbar-header {
+    display: flex;
+}
+
+.navbar-collapse {
+    margin-top: 1rem;
+}
+
+.custom-navbar {
+    display: flex;
+    align-self: baseline;
+}
+
+
+.menu-block .nav-link{
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 25px;
+    color: #3090dd;
+    font-weight: 600;
+    text-align: left;
+}
+
+.tw-hov:hover {
+    background: none;
+    color: #55acee;
+}
+
+.fb-hov:hover {
+    background: none;
+    color: #3b5998;
+}
+
+@media (max-width: 768px) {
+    .custom-navbar {
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 992px){
+    .navbar-collapse {
+        margin-top: 0;
+    }
+
+    .fab {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: inline-flex!important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fa-twitter {
+        background: #55acee;
+        color: #fff;
+    }
+
+    .fa-facebook-f {
+        background: #3b5998;
+        color: #fff
+    }
 }
