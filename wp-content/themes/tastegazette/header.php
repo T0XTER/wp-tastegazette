@@ -16,7 +16,11 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<?php wp_head(); ?>
+
+    <?php wp_head(); ?>
+
+    <title><?php bloginfo( 'name') ;
+		echo " | "; bloginfo( 'description') ;?></title>
 </head>
 
 <body <?php body_class(); ?>>
@@ -59,7 +63,7 @@
                 <div class="navbar-brand custom-navbar">
 					<?php the_custom_logo(); ?>
                 </div>
-                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <div class="navbar-collapse collapse menu-block" id="navbarSupportedContent">
 					<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'header-menu',
@@ -74,10 +78,10 @@
 					?>
                 </div>
                 <div class="navbar-nav header-soc-block d-none d-lg-inline-flex">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="https://twitter.com/GazetteTaste" target="_blank">
                         <i class="fab fa-twitter tw-hov"></i>
                     <a>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="https://facebook.com" target="_blank">
                         <i class="fab fa-facebook-f fb-hov"></i>
                     </a>
                 </div>

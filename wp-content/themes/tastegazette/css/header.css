@@ -1,6 +1,4 @@
-/*MAIN CSS */
-
-/*@import "css/tastegazette-main.css";*/
+/*****HEADER STYLES*****/
 
 .site-header {
     height: 90px;
@@ -65,12 +63,17 @@
     text-align: left;
 }
 
-.tw-hov:hover {
+.menu-block .nav-link:hover,
+.menu-block .nav-link:active {
+    color: #3b5998;
+}
+
+.tw-hov:hover, .tw-hov:active {
     background: none;
     color: #55acee;
 }
 
-.fb-hov:hover {
+.fb-hov:hover, .fb-hov:active {
     background: none;
     color: #3b5998;
 }

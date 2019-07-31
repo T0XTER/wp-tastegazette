@@ -1,0 +1,35 @@
+/*****FOOTER STYLES*****/
+
+.site-footer {
+    background: #3090dd;
+}
+
+.site-footer a {
+    display: inline-block;
+}
+
+.footer-widgets-wrap {
+    color: #fff;
+}
+
+.footer-brand {
+    margin-bottom: 30px;
+}
+
+.footer-menu-block {
+    margin: 0;
+    background: #9bc8ff;
+}
+
+.footer-menu-block .menu-item .nav-link {
+    color: #000!important;
+}
+
+#menu-footer-menu .menu-item .nav-link:hover,
+#menu-footer-menu .menu-item .nav-link:active {
+    color: #3090dd!important;
+}
+
+#menu-footer-menu {
+    margin: 0 0 0 -16px;
+}
