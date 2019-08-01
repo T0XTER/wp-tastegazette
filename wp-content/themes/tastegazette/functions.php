@@ -47,6 +47,17 @@ if ( ! function_exists( 'tastegazette_setup' ) ) :
 			'menu-1' => esc_html__( 'Primary', 'tastegazette' ),
 		) );
 
+		// Register Custom Navigation Walker
+		require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+
+		if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.php' ) ) {
+			// file does not exist... return an error.
+			return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
+		} else {
+			// file exists... require it.
+			require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+		}
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -168,18 +179,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-
-// Register Custom Navigation Walker
-require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
-
-if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.php' ) ) {
-	// file does not exist... return an error.
-	return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
-} else {
-	// file exists... require it.
-	require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
-}
-
 add_action( 'after_setup_theme', function () {
 
 	add_theme_support('custom-logo', array(
@@ -198,3 +197,11 @@ add_action( 'after_setup_theme', function () {
 		'footer-menu'     => 'bottom-menu',
 	] );
 } );
+
+add_filter( 'excerpt_length', function(){
+	return 20;
+} );
+
+add_filter('excerpt_more', function() {
+	return '...';
+});

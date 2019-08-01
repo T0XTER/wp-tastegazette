@@ -26,13 +26,21 @@
                         <?php get_sidebar(); ?>
                     </div>
                     <div class="footer-widgets">
-                        <?php ?>
-                        <article>
-                            <a href="<?php the_permalink(); ?>">
+                        <?php
 
+                        ?>
+                        <article class="footer-widget-item">
+                            <a href="<?php the_permalink(); ?>">
+                                <div class="footer-widget-img-wrap">
+                                    <?php
+                                    ?>
+                                    <div class="footer-widget-item-img" style=""></div>
+                                </div>
                             </a>
                         </article>
-                        <?php ?>
+                        <?php
+
+                        ?>
                     </div>
                     <div class="footer-social-wrap"></div>
                 </div>
@@ -40,17 +48,21 @@
         </div>
         <div class="footer-menu-block">
             <div class="container">
-	            <?php
-	            wp_nav_menu( array(
-		            'theme_location'    => 'footer-menu',
-		            'depth'             => 1,
-		            'container'         => false,
-		            'container_class'   => 'flex-wrap',
-		            'menu_class'        => 'list-inline d-flex',
-		            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-		            'walker'            => new WP_Bootstrap_Navwalker(),
-	            ) );
-	            ?>
+                <div class="footer-menu-wrap">
+                    <div class="flex-wrap">
+	                    <?php
+	                        wp_nav_menu( array(
+		                        'theme_location'    => 'footer-menu',
+		                        'depth'             => 1,
+		                        'container'         => false,
+		                        'container_class'   => 'flex-wrap',
+		                        'menu_class'        => 'list-inline d-flex',
+		                        'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+		                        'walker'            => new WP_Bootstrap_Navwalker(),
+	                        ) );
+	                    ?>
+                    </div>
+                </div>
             </div>
         </div>
 	</footer><!-- #colophon -->
