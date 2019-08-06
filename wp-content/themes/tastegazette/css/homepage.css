@@ -2,13 +2,71 @@
 
 /*@import "css/homepage.css";*/
 
+#banner {
+    margin-bottom: 20px;
+}
+
+.banner-item-wrap::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.banner-item {
+    overflow: hidden;
+}
+
 .banner-item-link {
     display: block;
+    position: relative;
+}
+
+.img-hover:before,
+.img-hover:after {
+    -webkit-transition: .4s ease-in-out;
+    -moz-transition: .4s ease-in-out;
+    -o-transition: .4s ease-in-out;
+    transition: .4s ease-in-out;
+}
+
+.img-hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    z-index: 1;
+}
+
+.img-hover:hover::before,
+.img-hover:hover::after {
+    opacity: 1;
+    z-index: 1;
 }
 
 .banner-image-wrap {
     height: 274px;
     position: relative;
+    overflow: hidden;
+}
+
+.banner-image-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, transparent 0%,
+                rgba(128, 128, 128, 0.01) 1%,
+                rgba(71, 71, 71, 0.34) 42%,
+                rgba(42, 42, 42, 0.55) 62%,
+                rgba(16, 16, 16, 0.73) 82%,
+                rgba(0, 0, 0, 0.85) 100%);
+    z-index: 1;
 }
 
 .banner-image {
@@ -23,6 +81,31 @@
 
 .banner-text-wrap {
     color: #fff;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 21px;
+    left: 12px;
+    right: 12px;
+    z-index: 2;
+}
+
+.banner-brand {
+    display: inline-block;
+    width: 19px;
+    height: 29px;
+}
+
+.banner-cat {
+    margin-bottom: 5px;
+}
+
+.banner-cat-title {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.banner-meta {
+    margin-bottom: 0;
 }
 
 @media (min-width: 576px) {
@@ -31,14 +114,47 @@
 
 @media (min-width: 768px) {
 
+    #banner {
+        margin-bottom: 34px;
+    }
+
     .banner-image-wrap {
         height: 346px;
+    }
+
+    .banner-text-wrap {
+        bottom: 29px;
+        left: 25px;
+        right: 25px;
+    }
+
+    .banner-cat {
+        margin-bottom: 8px;
     }
 }
 
 @media (min-width: 992px) {
 
+    #banner {
+        margin-bottom: 40px;
+    }
+
     .banner-image-wrap {
         height: 550px;
+    }
+
+    .banner-brand {
+        width: 31px;
+        height: 47px;
+    }
+
+    .banner-text-wrap {
+        bottom: 51px;
+        left: 19px;
+        right: 19px;
+    }
+
+    .banner-cat {
+        margin-bottom: 28px;
     }
 }

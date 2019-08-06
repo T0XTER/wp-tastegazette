@@ -2,6 +2,19 @@
 
 a {
     display: inline-block;
+    text-decoration: none;
+}
+
+.text-hover {
+    -webkit-transition: .2s ease-in-out;
+    -moz-transition: .2s ease-in-out;
+    -ms-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+}
+
+.text-hover:hover {
+    color: #3090dd!important;
 }
 
 .text-white {
