@@ -16,11 +16,25 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+    <title>
+        <?php
+        if ( is_front_page() && is_home() ) {
+            bloginfo( 'name') ;
+		    echo " | "; bloginfo( 'description') ;
+        }
 
-    <?php wp_head(); ?>
+        elseif ( is_archive() ) {
+	        echo get_queried_object()->name; echo " Archives";
+	        echo " | "; bloginfo( 'name') ;
+        }
 
-    <title><?php bloginfo( 'name') ;
-		echo " | "; bloginfo( 'description') ;?></title>
+        else {
+            echo the_title();
+        }
+        ?>
+    </title>
+
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
