@@ -7,6 +7,8 @@
  * @package tastegazette
  */
 
+require_once('ShownPosts.php');
+
 if ( ! function_exists( 'tastegazette_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -205,3 +207,15 @@ add_filter( 'excerpt_length', function(){
 add_filter('excerpt_more', function() {
 	return '...';
 });
+
+remove_filter('the_excerpt', 'wpautop');
+
+function addShownPostId($postId)
+{
+	$shownPosts[] = $postId;
+}
+
+function getShownPostIds()
+{
+	return $shownPosts;
+}

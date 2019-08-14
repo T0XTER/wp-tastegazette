@@ -8,19 +8,20 @@
 	</div>
 	<div class="bottom-block-left-post">
 		<?php
+		ShownPosts::addPostId($post->ID);
 		$args = array(
 			'posts_per_page' => '6',
 			'orderby' => 'date',
-			'post__not_in' => $ids
+			'post__not_in' => ShownPosts::getPostIds(),
 		);
-		$ids5 = [];
+		//$ids5 = [];
 		$query = new WP_Query($args);
 
 
 		if ($query->have_posts()) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				$ids5[] = get_the_ID();
+			    ShownPosts::addPostId(get_the_ID());
 				?>
 				<article class="bottom-block-left-post-item">
 					<a href="<?php the_permalink(); ?>" class="">
@@ -45,6 +46,7 @@
 				<?php
 			}
 		}
+		wp_reset_postdata();
 		?>
 	</div>
 </div>

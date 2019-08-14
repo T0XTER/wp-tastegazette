@@ -4,19 +4,20 @@
 			<div class="bottom-block-right">
 				<div class="bottom-block-right-big">
 					<?php
+					ShownPosts::addPostId($post->ID);
 					$args = array(
 						'posts_per_page' => '1',
 						'orderby' => 'date',
-						'post__not_in' => $ids
+						'post__not_in' => ShownPosts::getPostIds(),
 					);
 
 					$query = new WP_Query($args);
-					$ids4 = [];
+					//$ids4 = [];
 
 					if ($query->have_posts()) {
 						while ($query->have_posts()) {
 							$query->the_post();
-							$ids4[] = get_the_ID();
+							ShownPosts::addPostId(get_the_ID());
 							?>
 							<article class="bottom-block-right-big-item">
 								<a href="<?php  the_permalink(); ?>" class="">
@@ -29,19 +30,20 @@
 											? $imageArray[0]
 											: '';
 										?>
-										<div class="bottom-block-right-right-big-item-image" style="background-image: url('<?php echo $imageSrc ?>');"></div>
+										<div class="bottom-block-right-big-item-image" style="background-image: url('<?php echo $imageSrc ?>');"></div>
 									</div>
 									<div class="bottom-block-right-big-item-text-wrap">
-										<h2><?php the_title(); ?></h2>
-										<span><?php the_author(); ?></span>
-										<span>|</span>
-										<span><?php the_time('j/n/y'); ?></span>
+										<h2 class="text-hover"><?php the_title(); ?></h2>
+										<span class="text-hover"><?php the_author(); ?></span>
+										<span class="text-hover divider">|</span>
+										<span class="text-hover"><?php the_time('j/n/y'); ?></span>
 									</div>
 								</a>
 							</article>
 							<?php
 						}
 					}
-					$ids = array_merge($ids1, $ids2, $ids3, $ids4);
+					//$ids = array_merge($ids1, $ids2, $ids3, $ids4);
+					wp_reset_postdata();
 					?>
 				</div>

@@ -1,21 +1,22 @@
 <div class="bottom-block-right-small">
 	<?php
+	ShownPosts::addPostId($post->ID);
 	$args = array(
 		'posts_per_page' => '6',
 		'orderby' => 'date',
-		'post__not_in' => $ids
+		'post__not_in' => ShownPosts::getPostIds(),
 	);
 
 	$query = new WP_Query($args);
-	$ids5 = [];
+	//$ids5 = [];
 
 	if ($query->have_posts()) {
 		while ($query->have_posts()) {
 			$query->the_post();
-			$ids5[] = get_the_ID();
+			ShownPosts::addPostId(get_the_ID());
 			?>
 			<article class="bottom-block-right-small-item">
-				<a href="<?php the_permalink(); ?>" class="">
+				<a href="<?php the_permalink(); ?>" class="bottom-block-right-small-item-link">
 					<div class="bottom-block-right-small-item-image-wrap">
 						<?php
 						$imageArray = get_post_thumbnail_id()
@@ -35,7 +36,8 @@
 			<?php
 		}
 	}
-	$ids = array_merge($ids1, $ids2, $ids3, $ids4, $ids5);
+	//$ids = array_merge($ids1, $ids2, $ids3, $ids4, $ids5);
+	wp_reset_postdata();
 	?>
 </div>
 </div>

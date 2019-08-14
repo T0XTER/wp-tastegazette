@@ -17,7 +17,6 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-
         <?php
         get_template_part('template-parts/banner');
         get_template_part('template-parts/top-ad');
@@ -28,7 +27,6 @@ get_header();
         get_template_part('template-parts/bottom-small-block');
         get_template_part('template-parts/bottom-left-block');
         ?>
-
         </main><!-- #main -->
     </div><!-- #primary -->
 

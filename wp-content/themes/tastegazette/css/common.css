@@ -1,6 +1,6 @@
 /*****COMMON STYLES*****/
 
-a {
+a , a:hover {
     display: inline-block;
     text-decoration: none;
 }
@@ -13,10 +13,15 @@ a {
     transition: .2s ease-in-out;
 }
 
-.text-hover:hover {
+.text-hover:hover, .bottom-block .divider {
     color: #3090dd!important;
+    text-decoration: none;
 }
 
 .text-white {
     color: #fff;
+}
+
+.top-block-item h2, .bottom-block h2, .bottom-block span {
+    color: #000;
 }

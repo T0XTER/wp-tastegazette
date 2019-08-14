@@ -1,22 +1,23 @@
 <div id="banner">
 	<div class="banner-item-wrap">
 		<article class="banner-item">
-			<?php
+            <?php
 			$args = array(
-				'posts_per_page' => '1',
-				'orderby' => 'date'
+				'posts_per_page' => 1,
+				'orderby' => 'date',
+				'post_type'        => array( 'post' ),
+				'post_status'      => array( 'publish' ),
+				'order'            => 'DESC',
+                'posts__not_in'    => ShownPosts::getPostIds(),
 			);
-
 			$query = new WP_Query($args);
-			$ids = [];
-			$ids1 = [];
 
 			if ($query->have_posts()) {
 				while ($query->have_posts()) {
 					$query->the_post();
-					$ids1[] = get_the_ID();
+					ShownPosts::addPostId(get_the_ID());
 					?>
-					<a class="banner-item-link img-hover" href="<?php the_permalink(); ?>">
+					<a class="banner-item-link" href="<?php the_permalink(); ?>">
 						<div class="banner-image-wrap">
 							<?php
 							$imageArray = get_post_thumbnail_id()
@@ -51,6 +52,7 @@
 					<?php
 				}
 			}
+			wp_reset_postdata();
 			?>
 		</article>
 	</div>
